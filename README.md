@@ -1,6 +1,6 @@
 # AWS EC2 Instance Management GitHub Action
 
-This project provides a GitHub Action that allows you to start and stop an AWS EC2 instance.
+This project provides a GitHub Action and Terraform configuration example that allows you to start and stop an AWS EC2 instance manually from GitHub UI using OIDC to connect GitHub to AWS.
 
 ## Usage
 
