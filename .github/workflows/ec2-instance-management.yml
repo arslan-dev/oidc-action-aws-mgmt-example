@@ -1,0 +1,33 @@
+name: EC2 Instance Management
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "Select action"
+        required: true
+        default: "Start"
+        type: choice
+        options:
+          - "Start"
+          - "Stop"
+
+jobs:
+  instance-management:
+    name: Start or Stop EC2 Instance
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Start or Stop EC2 Instance
+        run: |
+          if [ "${{ github.event.inputs.action }}" == "Start" ]; then
+            aws ec2 start-instances --instance-ids ${{ secrets.AWS_INSTANCE_ID }}
+          elif [ "${{ github.event.inputs.action }}" == "Stop" ]; then
+            aws ec2 stop-instances --instance-ids ${{ secrets.AWS_INSTANCE_ID }}
+          fi
