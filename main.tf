@@ -10,7 +10,7 @@ terraform {
 }
 
 provider "aws" {
-  region  = "eu-central-1"
+  region  = var.aws_region
   profile = var.aws_profile
 }
 
@@ -85,5 +85,5 @@ output "ec2_instance_id" {
 }
 
 output "region" {
-  value = "eu-central-1"
+  value = var.aws_region
 }
