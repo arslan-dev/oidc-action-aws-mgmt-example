@@ -5,7 +5,7 @@ This project provides a GitHub Action and Terraform configuration example that a
 ## Usage
 
 1. Run `terraform apply`
-2. Use terraform output and fill out GitHub Secrets
+2. Using terraform output, fill out these GitHub Secrets:
 
 - AWS_ROLE_TO_ASSUME
 - AWS_REGION
