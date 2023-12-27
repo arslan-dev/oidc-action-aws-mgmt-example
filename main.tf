@@ -11,7 +11,7 @@ terraform {
 
 provider "aws" {
   region  = "eu-central-1"
-  profile = "admin"
+  profile = var.aws_profile
 }
 
 resource "aws_instance" "example" {
@@ -42,7 +42,7 @@ data "aws_iam_policy_document" "github_trust" {
     condition {
       test     = "StringEquals"
       variable = "token.actions.githubusercontent.com:sub"
-      values   = ["repo:${var.github_organization}/${var.github_repo}:ref:${var.github_branch}"]
+      values   = ["repo:${var.github_organization}/${var.github_repo}:ref:refs/heads/${var.github_branch}"]
     }
 
     condition {

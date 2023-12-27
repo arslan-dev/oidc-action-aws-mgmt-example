@@ -1,17 +1,19 @@
-variable "github_organization" {
-  description = "The GitHub organization"
+variable "aws_profile" {
+  description = "Your AWS CLI SSO profile name"
   type        = string
-  default     = "arslan-dev"
+}
+
+variable "github_organization" {
+  description = "Your GitHub organization or username"
+  type        = string
 }
 
 variable "github_repo" {
-  description = "The GitHub repository"
+  description = "Your GitHub repository name"
   type        = string
-  default     = "oidc-action-aws-mgmt-terraform-example"
 }
 
 variable "github_branch" {
   description = "The GitHub branch"
   type        = string
-  default     = "refs/heads/main"
 }

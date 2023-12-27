@@ -5,7 +5,7 @@ This project provides a GitHub Action and Terraform configuration example that a
 ## Usage
 
 1. Fork the repository
-2. Run `terraform apply`
+2. Run `terraform init && terraform apply` and provide necessary values
 3. Using terraform output, fill out these GitHub Secrets (Repository Settings -> Secrets and variables):
 
 - AWS_ROLE_TO_ASSUME
